@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class Categoria(models.Model):
     id=models.AutoField(primary_key=True)
     nombre=models.CharField(max_length=40, null=False, blank=False)
-    actuvado=models.BooleanField(default=True)
+    activado=models.BooleanField(default=True)
     fecha_creacion=models.DateField(auto_now_add=True)
 
     class Meta:
