@@ -10,4 +10,11 @@ class CategoriaAdmin(admin.ModelAdmin):
     list_display= ('id', 'nombre', 'activado', 'fecha_creacion')
     list_filter=('activado',)
 
+class PostAdmin(admin.ModelAdmin):
+    ordering= ('id', 'titulo', 'categoria', 'publicado', 'fecha_creacion', 'usuario')
+    search_files=('id', 'titulo', 'categoria', 'publicado', 'fecha_creacion', 'usuario')
+    list_display= ('id', 'titulo', 'categoria', 'publicado', 'fecha_creacion', 'usuario')
+    list_filter=('categoria', 'publicado', 'usuario')
+
 admin.site.register(Categoria, CategoriaAdmin)
+admin.site.register(Post, PostAdmin)
