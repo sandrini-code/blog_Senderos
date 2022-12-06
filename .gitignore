@@ -60,6 +60,3 @@ ENV/
 .spyderproject
 # Rope project settings
 .ropeproject
-*.sqlite3
-*/migrations/*
-blog/apps/post/migrations
