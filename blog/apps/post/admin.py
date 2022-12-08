@@ -12,9 +12,9 @@ class CategoriaAdmin(admin.ModelAdmin):
 
 class PostAdmin(admin.ModelAdmin):
     ordering= ('id', 'titulo', 'categoria', 'publicado', 'fecha_creacion', 'usuario')
-    search_files=('id', 'titulo', 'categoria', 'publicado', 'fecha_creacion', 'usuario')
+    search_files=('id', 'titulo', 'categoria__nombre', 'publicado', 'fecha_creacion')
     list_display= ('id', 'titulo', 'categoria', 'publicado', 'fecha_creacion', 'usuario')
-    list_filter=('categoria', 'publicado', 'usuario')
+    list_filter=('categoria__nombre', 'publicado', 'usuario')
 
 admin.site.register(Categoria, CategoriaAdmin)
 admin.site.register(Post, PostAdmin)
