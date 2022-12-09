@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from apps.post.views import crearPost, plantillaHija1, plantillaHija2, blog, quienesSomos, formularioContacto, contactar
+from apps.post.views import  crearPost, plantillaHija1, plantillaHija2, blog, quienesSomos, formularioContacto, contactar
 #from MiProyecto.view import plantillaHija1, plantillaHija2, blog, quienesSomos, formularioContacto, contactar
 
 urlpatterns = [
@@ -26,5 +26,6 @@ urlpatterns = [
     path("", blog),
     path("quienesSomos/", quienesSomos),
     path('formularioContacto/', formularioContacto),
-    path('contactar/', contactar)
+    path('contactar/', contactar),
+
 ]
