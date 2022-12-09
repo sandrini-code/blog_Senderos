@@ -15,9 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from apps.post.views import crearPost
+from apps.post.views import crearPost, plantillaHija1, plantillaHija2, blog, quienesSomos, formularioContacto, contactar
+#from MiProyecto.view import plantillaHija1, plantillaHija2, blog, quienesSomos, formularioContacto, contactar
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('crear_post/', crearPost, name='crear_post'),
+    path("plantillaHija1/", plantillaHija1),
+    path("plantillaHija2/", plantillaHija2),
+    path("", blog),
+    path("quienesSomos/", quienesSomos),
+    path('formularioContacto/', formularioContacto),
+    path('contactar/', contactar)
 ]

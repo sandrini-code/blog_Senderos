@@ -1,0 +1,41 @@
+{% extends "plantillaPadre.html" %}
+{%load static%}
+{% block title %} BLOG {%endblock %}
+
+{%block content%}
+<header>
+        <h1 id="titulo">blog del grupo 10</h1>
+    </header>
+    <div>
+        <p>soy un parrafo</p>
+    </div>
+    <section>
+        <article class="post">
+            <h2>Titulo de mi post</h2>
+            <p>Descripcion de mi post</p>
+            <img src='{%static "img/1.jpg"%}' width="400" />
+            <p>Este es un texto de prueba de como esta quedando mi post</p>
+
+        </article>
+        <article class="post">
+            <h2>Titulo de mi post2</h2>
+            <p>Descripcion de mi post2</p>
+            <img src='{%static "img/2.jpg"%}' width="400" />
+            <p>Este es un texto de prueba de como esta quedando mi post2.</p>
+
+        </article>
+        <article class="post">
+            <h2>Titulo de mi post3</h2>
+            <p>Descripcion de mi post3</p>
+            <img src='{%static "img/3.jpg"%}' width="400" />
+            <p>Este es un texto de prueba de como esta quedando mi post2.</p>
+
+        </article>
+    </section>
+    <footer>
+        <a href="#titulo">Ir al comienzo</a><br>
+        <a href="/formularioContacto/">Contactame aqui</a>
+        <p>Copirigth 2022</p>
+    </footer>
+
+{%endblock%}
