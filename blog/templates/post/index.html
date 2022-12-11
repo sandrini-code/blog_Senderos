@@ -1,11 +1,8 @@
+{% extends "plantillaPadre.html" %}
 {%load static%}
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% block title %} Plantilla hija 1 {%endblock %}
+
+{%block content%}
 <form method="POST" enctype="multipart/form-data">
 {%csrf_token%}
     <div class="card">
@@ -18,5 +15,4 @@
 
     </div>
 </form>
-</body>
-</html>
+{%endblock%}

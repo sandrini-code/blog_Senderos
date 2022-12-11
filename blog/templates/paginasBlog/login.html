@@ -1,0 +1,13 @@
+
+{% extends "plantillaPadre.html" %}
+{%load static%}
+{% block title %} Login {%endblock %}
+
+{%block content%}
+  <form method="POST">
+    {%csrf_token%}
+    {{form.as_p}}
+
+    <button type="submit" id="submit">Login</button>
+  </form>
+{%endblock%}

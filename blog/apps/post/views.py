@@ -3,6 +3,10 @@ from .models import Post
 from .forms import PostForm
 from django.core.mail import send_mail
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
+from .forms import UserRegisterForm
+#from Modulos.Academica.plantillas import *
+from django.contrib import messages
 
 # Create your views here.
 def plantillaHija1(request):
@@ -25,6 +29,7 @@ def contactar(request):
         send_mail(asunto, mensaje, email_desde, email_para, fail_silently=False)
         return render(request, "contactoExitoso.html")
     return render(request, "formularioContacto.html")
+@login_required
 def crearPost(request):
     if request.method=='POST':
         post_form=PostForm(request.POST or None, request.FILES or None)
@@ -34,3 +39,18 @@ def crearPost(request):
     else:
         post_form=PostForm()
     return render(request,  'post/index.html',{'post_form':post_form})
+
+def register (request):
+    if request.method == 'POST':
+        form= UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username=form.cleaned_data['username']
+            messages.success(request,f"Usuario {username} creado")
+            return redirect(blog)
+    else:
+        form= UserRegisterForm()
+
+    context={'form' : form}
+
+    return render(request, 'register.html', context)

@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from apps.post.views import  crearPost, plantillaHija1, plantillaHija2, blog, quienesSomos, formularioContacto, contactar
-#from MiProyecto.view import plantillaHija1, plantillaHija2, blog, quienesSomos, formularioContacto, contactar
+#from blog.apps.post import views
+from apps.post.views import  crearPost, plantillaHija1, plantillaHija2
+from apps.post.views import  blog, quienesSomos, formularioContacto, contactar, register
+from django.contrib.auth.views import LoginView, LogoutView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,5 +30,9 @@ urlpatterns = [
     path("quienesSomos/", quienesSomos),
     path('formularioContacto/', formularioContacto),
     path('contactar/', contactar),
+    path('register/', register, name='register'),
+    path('auth/login/', LoginView.as_view(template_name='login.html'), name='login'),
+    path('login/', LoginView.as_view(template_name='login.html'), name='login'),
+    path('logout/', LogoutView.as_view(template_name='logout.html'), name='logout')
 
 ]

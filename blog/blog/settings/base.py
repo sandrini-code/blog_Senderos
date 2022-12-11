@@ -29,6 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -120,9 +121,11 @@ EMAIL_BACKEND= "django.core.mail.backends.smtp.EMAIL_BACKEND"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_USE_TLS = True
 EMAIL_PORT=587
-EMAIL_HOST_USER="gastonrg9@gmail.com"
-EMAIL_HOST_PASSWORD= "ntmpufgcmobjcpmh"
+EMAIL_HOST_USER="correo@gmail.com"
+EMAIL_HOST_PASSWORD= "password"
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+LOGIN_REDIRECT_URL = '/quienesSomos/'
+LOGIN_URL="/auth/login/"
 
 #STATICFILES_DIRS = (os.path.join(BASE_DIR, 'blog/static'),)
 
