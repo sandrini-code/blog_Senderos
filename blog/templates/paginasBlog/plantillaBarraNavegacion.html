@@ -37,15 +37,25 @@
             <li class="nav-item">
               <a class="nav-link" href="/crear_post/">Crear Post</a>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Logueo
+                </a>
+              <ul class="dropdown-menu">
+                     {% if user.is_authenticated %}
+                    <li>Usuario: {{ user.get_username }}</li>
+                    <li><a href="/logout/">Logout</a></li>
+                    {% else %}
+                    <li>Usuario: Invitado</li>
+                     <li><a href="/login/">Login</a></li>
+                    {% endif %}
+              </ul>
+              </li>
+
              <li class="nav-item">
               <a class="nav-link" href="/register/">Registro</a>
             </li>
-             <li class="nav-item">
-              <a class="nav-link" href="/login/">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/logout/">Logout</a>
-            </li>
+
           </ul>
 
 
