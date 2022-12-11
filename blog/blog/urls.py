@@ -17,9 +17,10 @@ from django.contrib import admin
 from django.urls import path
 #from blog.apps.post import views
 from apps.post.views import  crearPost, plantillaHija1, plantillaHija2
-from apps.post.views import  blog, quienesSomos, formularioContacto, contactar, register
+from apps.post.views import  blog, quienesSomos, formularioContacto, contactar, register, publicarPost
 from django.contrib.auth.views import LoginView, LogoutView
 
+#from blog.apps.post.views import publicarPost
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,6 +34,7 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('auth/login/', LoginView.as_view(template_name='login.html'), name='login'),
     path('login/', LoginView.as_view(template_name='login.html'), name='login'),
-    path('logout/', LogoutView.as_view(template_name='logout.html'), name='logout')
+    path('logout/', LogoutView.as_view(template_name='logout.html'), name='logout'),
+    path('publicarPost/', publicarPost, name='publicarPost')
 
 ]

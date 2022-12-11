@@ -10,6 +10,7 @@ from .forms import UserRegisterForm
 from django.contrib import messages
 
 
+
 # Create your views here.
 def plantillaHija1(request):
     return render(request, "plantillaHija1.html", {})
@@ -58,3 +59,7 @@ def register (request):
     context={'form' : form}
 
     return render(request, 'register.html', context)
+
+def publicarPost(request):
+    posts= Post.objects.all()
+    return render(request, "publicarPost.html", {'posts': posts})
