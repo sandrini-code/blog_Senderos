@@ -4,10 +4,17 @@
 {% block title %} Login {%endblock %}
 
 {%block content%}
-  <form method="POST">
-    {%csrf_token%}
-    {{form.as_p}}
 
-    <button type="submit" id="submit">Login</button>
+ <form  method="POST" enctype="multipart/form-data"> {%csrf_token%}
+     <div class="card">
+         <h5 class="card-header">Login de usuarios</h5>
+
+        <div class="form-label">
+            {{form.as_p}}
+        </div>
+     <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">Enviar</button>
+     </div>
+     </div>
   </form>
 {%endblock%}
