@@ -34,16 +34,8 @@
             <li class="nav-item">
               <a class="nav-link" href="/formularioContacto/">Contactanos</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/crear_post/">Crear Post</a>
-            </li>
 
-
-
-
-
-
-          </ul>
+        </ul>
 
             <ul class="nav justify-content-end">
                  <li class="nav-item dropdown">
@@ -63,18 +55,24 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/register/">Registro</a>
                 </li>
+                {% if user.is_authenticated and  user.is_staff%}
+                 <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Carga de contenido
+              </a>
+              <ul class="dropdown-menu">
+
+                  <li>
+                       <a class="nav-link" href="/crear_post/">Crear Post</a>
+                  </li>
 
 
+              </ul>
+              </li>
+          {% endif %}
 </ul>
         </div>
       </div>
-
-
       </nav>
-
-
-
-
-
-    </body>
+  </body>
 </html>
