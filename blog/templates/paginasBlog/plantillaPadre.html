@@ -23,17 +23,7 @@
 
 </head>
 <body>
- {%for post in posts%}
 
-    {%if post.imagen%}
-      <p>{{post.titulo}}</p>
-      <p>{{post.resumen}}</p>
-      <p>{{post.texto}}</p>
-      <p>{{post.imagen.url}}</p>
-    <img src='{{post.imagen.url}}' width="100%" />
-    {%endif%}
-
-  {%endfor%}
     {%include "plantillaBarraNavegacion.html"%}
     <div class="container">
         <div class="row">

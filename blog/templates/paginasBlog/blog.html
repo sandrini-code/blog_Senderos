@@ -1,7 +1,5 @@
-
 {% extends "plantillaPadre.html" %}
 {%load static%}
-
 
 {% block title %} BLOG {%endblock %}
 
@@ -10,29 +8,17 @@
 <header>
         <h1 id="titulo" align="center" >BLOG "Senderos"</h1>
     </header>
-    <div>
-        <p>soy un parrafo</p>
-    </div>
+
     <section>
         <article class="post">
-            <h2>Titulo de mi post</h2>
-            <p>Descripcion de mi post</p>
-            <img  src='{%static "img/1.jpg"%}'  width="100%" />
-            <p>Este es un texto de prueba de como esta quedando mi post</p>
+    {%for post in posts%}
+      <h2 align="center">{{post.titulo}}</h2>
+      <p>{{post.resumen}}</p>
+      <p>{{post.texto}}</p>
+    <img src='static/{{post.imagen}}' width="50%" />
+    <p>Creado: {{post.fecha_creacion}}/ Autor: {{post.usuario}}</p>
 
-        </article>
-        <article class="post">
-            <h2>Titulo de mi post2</h2>
-            <p>Descripcion de mi post2</p>
-            <img src='{%static "img/2.jpg"%}' width="400" />
-            <p>Este es un texto de prueba de como esta quedando mi post2.</p>
-
-        </article>
-        <article class="post">
-            <h2>Titulo de mi post3</h2>
-            <p>Descripcion de mi post3</p>
-            <img src='{%static "img/3.jpg"%}' width="400" />
-            <p>Este es un texto de prueba de como esta quedando mi post2.</p>
+  {%endfor%}
 
         </article>
     </section>
