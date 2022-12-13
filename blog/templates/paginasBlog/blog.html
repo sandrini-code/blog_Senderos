@@ -5,31 +5,59 @@
 
 {%block content%}
 {%load static%}
-<header>
 
 
+<div class="container">
+    <div class="form-group row">
+      <div class="col-xs-2">
+      </div>
+      <div class="col-xs-6">
+       <button type="button" class="btn btn-info" value="Click Me" style="float: right;">
+      <span class="glyphicon glyphicon-search"></span> Search
+    </button>
+      </div>
+      <div class="col-xs-4">
+        <input class="form-control" id="ex3" type="text">
+      </div>
+    </div>
 
+<div class="container">
 
-        <h1 id="titulo" align="center" >BLOG "Senderos"</h1>
-    </header>
-
-    <section>
+  <div class="panel panel-default">
+         <div class="panel-heading">
+             <h1 id="titulo" align="center" >BLOG "Senderos"</h1>
+         </div>
+         <div class="panel-body">
+        <section>
         <article class="post">
-    {%for post in posts%}
+    {% for post in posts %}
       <h2 align="center">{{post.titulo}}</h2>
       <p>{{post.resumen}}</p>
       <p>{{post.texto}}</p>
-    <img src='static/{{post.imagen}}' width="50%" />
-    <p>Creado: {{post.fecha_creacion}}/ Autor: {{post.usuario}}</p>
+    <div class="img-container">
+        <img  src='static/{{post.imagen}}'  width="50%" />
+    </div>
+
+    <p align="center">Creado: {{post.fecha_creacion}}/ Autor: {{post.usuario}}</p>
 
   {%endfor%}
 
         </article>
     </section>
-    <footer>
-        <a href="#titulo">Ir al comienzo</a><br>
+
+    </div>
+      <div class="panel-footer">
+           <a href="#titulo">Ir al comienzo</a><br>
         <a href="/formularioContacto/">Contactame aqui</a>
         <p>Copirigth 2022</p>
+      </div>
+  </div>
+</div>
+
+
+
+    <footer>
+
     </footer>
 
 {%endblock%}
