@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import permission_required
 from .forms import UserRegisterForm
 #from Modulos.Academica.plantillas import *
 from django.contrib import messages
-
+from django.db.models import Q
 
 
 # Create your views here.
@@ -18,7 +18,14 @@ def plantillaHija1(request):
 def plantillaHija2(request):
     return render(request, "plantillaHija2.html", {})
 def blog(request):
-    posts = Post.objects.all()
+    queryset = request.GET.get("buscar")
+    posts = Post.objects.filter(publicado=True)
+    if queryset:
+        posts = Post.objects.filter(
+            Q(titulo__icontains=queryset)|
+            Q(resumen__icontains=queryset)|
+            Q(texto__icontains=queryset)
+        ).distinct()
     return render(request, "blog.html", {'posts': posts})
 def quienesSomos(request):
     return render(request, "quienesSomos.html", {})
