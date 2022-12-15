@@ -9,6 +9,7 @@ from .forms import UserRegisterForm
 #from Modulos.Academica.plantillas import *
 from django.contrib import messages
 from django.db.models import Q
+from datetime import datetime
 
 
 # Create your views here.
@@ -20,11 +21,12 @@ def plantillaHija2(request):
 def blog(request):
     queryset = request.GET.get("buscar")
     cate = request.GET.get("categoria")
-    print(cate)
-
-    #    cate = request.POST.get('categoria', None)
+    fecha= request.GET.get("fecha")
+    meses={"Enero":"01", "Febrero":"02", "Marzo":"03", "Abril":"04", "Mayo":"05", "Junio":"06", "Julio":"07", "Agosto":"08", "Septiembre":"09", "Octubre":"10", "Noviembre":"11", "Diciembre":"12"}
+    for mes in meses:
+        if mes == fecha:
+            mes_Post=meses[mes]
     posts = Post.objects.filter(publicado=True)
-
     categ = Categoria.objects.all()
     if queryset:
         posts = Post.objects.filter(
@@ -32,8 +34,12 @@ def blog(request):
             Q(resumen__icontains=queryset) |
             Q(texto__icontains=queryset)
         ).distinct()
-    elif cate:
+    elif cate and cate!= "Categorias":
         posts = Post.objects.filter(categoria__nombre=cate).distinct()
+    elif fecha and fecha!= "Meses":
+        posts = Post.objects.filter(
+            Q(fecha_creacion__icontains=mes_Post),
+        ).distinct()
 
     context = {
         'posts': posts,
@@ -54,7 +60,7 @@ def contactar(request):
         return render(request, "contactoExitoso.html")
     return render(request, "formularioContacto.html")
 @login_required
-@permission_required("root")
+@permission_required("staff")
 def crearPost(request):
     if request.method=='POST':
         post_form=PostForm(request.POST or None, request.FILES or None)
