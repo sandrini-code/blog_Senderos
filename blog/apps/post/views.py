@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Post
+from .models import Post, Categoria
 from .forms import PostForm
 from django.core.mail import send_mail
 from django.conf import settings
@@ -19,14 +19,27 @@ def plantillaHija2(request):
     return render(request, "plantillaHija2.html", {})
 def blog(request):
     queryset = request.GET.get("buscar")
+    cate = request.GET.get("categoria")
+    print(cate)
+
+    #    cate = request.POST.get('categoria', None)
     posts = Post.objects.filter(publicado=True)
+
+    categ = Categoria.objects.all()
     if queryset:
         posts = Post.objects.filter(
-            Q(titulo__icontains=queryset)|
-            Q(resumen__icontains=queryset)|
+            Q(titulo__icontains=queryset) |
+            Q(resumen__icontains=queryset) |
             Q(texto__icontains=queryset)
         ).distinct()
-    return render(request, "blog.html", {'posts': posts})
+    elif cate:
+        posts = Post.objects.filter(categoria__nombre=cate).distinct()
+
+    context = {
+        'posts': posts,
+        'categorias': categ
+    }
+    return render(request, "blog.html", context)
 def quienesSomos(request):
     return render(request, "quienesSomos.html", {})
 def formularioContacto(request):

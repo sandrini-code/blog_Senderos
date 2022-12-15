@@ -1,4 +1,4 @@
-{% extends "plantillaPadre.html" %}
+{% extends "paginasBlog/plantillaPadre.html" %}
 {%load static%}
 
 {% block title %} BLOG {%endblock %}
@@ -9,27 +9,43 @@
 
 <div class="container">
     <div class="form-group row">
-      <div class="col-xs-2">
-      </div>
       <div class="col-xs-6">
-      <!-- <button type="submit" class="btn btn-success" value="Click Me" style="float: right;">
-      <span class="glyphicon glyphicon-search"></span> Search
-    </button>-->
       </div>
+      <div class="col-xs-2">
+          <form class="row g-3">
+              <div class="col-auto">
+                  <select class="form-control input-solid" name="categoria" >
+                  <option></option>
+                    {% for categoria in categorias %}
+                  <option>{{categoria.nombre}}</option>
+                    {% endfor %}
+                  </select>
+              </div>
+              <div class="col-auto" >
+                 <button type="submit" class="btn btn-success" value="Click Me" style="float: right;">
+                 <span class="glyphicon glyphicon-search"></span> Filtrar
+                 </button>
+              </div>
+           </form>
+      </div>
+
+
       <div class="col-xs-4">
-           <form class="row g-3">
+           <form class="row g-6">
+               <div class="col-auto">
+                    <input type="text" class="form-control"  placeholder="Buscar..." name="buscar">
+               </div>
+               <div class="col-auto" >
+                    <button type="submit" class="btn btn-success" value="Click Me" style="float: right;">
+                    <span class="glyphicon glyphicon-search"></span> Buscar
+                    </button>
+               </div>
+           </form><br>
 
-  <div class="col-auto">
-
-    <input type="text" class="form-control"  placeholder="Buscar..." name="buscar">
-  </div>
-  <div class="col-auto" >
-    <button type="submit" class="btn btn-success">Search</button>
-  </div>
-        </form>
-       <!-- <input class="form-control" type="text" placeholder="Buscar..." name="buscar">-->
       </div>
     </div>
+</div>
+
 
 <div class="container">
 
@@ -37,6 +53,7 @@
          <div class="panel-heading">
              <h1 id="titulo" align="center" >BLOG "Senderos"</h1>
          </div>
+
          <div class="panel-body">
         <section>
         <article class="post">
