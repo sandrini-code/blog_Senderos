@@ -14,9 +14,9 @@ class Categoria(models.Model):
         return str(self.nombre)
 class Post(models.Model):
     id=models.AutoField(primary_key=True)
-    titulo=models.CharField(max_length=40, null=False, blank=False)
-    resumen=models.CharField(max_length=70, null=False, blank=False)
-    texto=models.TextField(max_length=500, null=False, blank=False)
+    titulo=models.CharField(max_length=100, null=False, blank=False)
+    resumen=models.CharField(max_length=500, null=False, blank=False)
+    texto=models.TextField(max_length=5000, null=False, blank=False)
     imagen=models.ImageField(upload_to='post', null=True)
     categoria=models.ForeignKey(Categoria, on_delete=models.CASCADE)
     publicado=models.BooleanField(default=True)

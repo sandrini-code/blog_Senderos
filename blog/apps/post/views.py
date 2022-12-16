@@ -16,17 +16,23 @@ from datetime import datetime
 def plantillaHija1(request):
     return render(request, "plantillaHija1.html", {})
 def fauna(request):
-    return render(request, "secciones/fauna.html", {})
+    fauna = Post.objects.filter(categoria__nombre="fauna").distinct()
+    return render(request, "secciones/fauna.html", {"fauna": fauna})
 def flora(request):
-    return render(request, "secciones/flora.html", {})
+    flora = Post.objects.filter(categoria__nombre="flora").distinct()
+    return render(request, "secciones/flora.html", {"flora": flora})
 def hongos(request):
-    return render(request, "secciones/hongos.html", {})
+    hongos = Post.objects.filter(categoria__nombre="hongos").distinct()
+    return render(request, "secciones/hongos.html", {"hongos": hongos})
 def proyectos(request):
-    return render(request, "secciones/proyectos.html", {})
+    proyectos = Post.objects.filter(categoria__nombre="proyectos").distinct()
+    return render(request, "secciones/proyectos.html", {"proyectos":proyectos})
 def publicaciones(request):
-    return render(request, "secciones/publicaciones.html", {})
+    publicaciones = Post.objects.filter(categoria__nombre="publicaciones").distinct()
+    return render(request, "secciones/publicaciones.html", {"publicaciones":publicaciones})
 def servicios(request):
-    return render(request, "secciones/servicios.html", {})
+    servicios = Post.objects.filter(categoria__nombre="servicios").distinct()
+    return render(request, "secciones/servicios.html", {"servicios":servicios})
 
 def plantillaHija2(request):
     return render(request, "secciones/plantillaHija2.html", {})
