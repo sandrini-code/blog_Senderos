@@ -18,6 +18,7 @@ from django.urls import path
 #from blog.apps.post import views
 from apps.post.views import  crearPost, plantillaHija1, plantillaHija2
 from apps.post.views import  blog, quienesSomos, formularioContacto, contactar, register, publicarPost
+from apps.post.views import fauna, flora, hongos, proyectos, publicaciones, servicios
 from django.contrib.auth.views import LoginView, LogoutView
 
 #from blog.apps.post.views import publicarPost
@@ -35,6 +36,11 @@ urlpatterns = [
     path('auth/login/', LoginView.as_view(template_name='login.html'), name='login'),
     path('login/', LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', LogoutView.as_view(template_name='logout.html'), name='logout'),
-    path('publicarPost/', publicarPost, name='publicarPost')
-
+    path('publicarPost/', publicarPost, name='publicarPost'),
+    path('flora/', flora, name='flora'),
+    path('fauna/', fauna, name='fauna'),
+    path('hongos/', hongos, name='hongos'),
+    path('proyectos/', proyectos, name='proyectos'),
+    path('publicaciones/', publicaciones, name='publicaciones'),
+    path('servicios/', servicios, name='servicios')
 ]

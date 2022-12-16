@@ -15,9 +15,21 @@ from datetime import datetime
 # Create your views here.
 def plantillaHija1(request):
     return render(request, "plantillaHija1.html", {})
+def fauna(request):
+    return render(request, "secciones/fauna.html", {})
+def flora(request):
+    return render(request, "secciones/flora.html", {})
+def hongos(request):
+    return render(request, "secciones/hongos.html", {})
+def proyectos(request):
+    return render(request, "secciones/proyectos.html", {})
+def publicaciones(request):
+    return render(request, "secciones/publicaciones.html", {})
+def servicios(request):
+    return render(request, "secciones/servicios.html", {})
 
 def plantillaHija2(request):
-    return render(request, "plantillaHija2.html", {})
+    return render(request, "secciones/plantillaHija2.html", {})
 def blog(request):
     queryset = request.GET.get("buscar")
     cate = request.GET.get("categoria")
@@ -38,8 +50,8 @@ def blog(request):
         posts = Post.objects.filter(categoria__nombre=cate).distinct()
     elif fecha and fecha!= "Meses":
         posts = Post.objects.filter(
-            Q(fecha_creacion__icontains=mes_Post),
-        ).distinct()
+            Q(fecha_creacion__month=mes_Post),
+        )
 
     context = {
         'posts': posts,
