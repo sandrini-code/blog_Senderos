@@ -108,3 +108,11 @@ def register (request):
 def publicarPost(request):
     posts= Post.objects.all()
     return render(request, "publicarPost.html", {'posts': posts})
+
+def leerPost(request, id):
+    if request.method=='GET':
+        post = Post.objects.get(id=id)
+        context = {
+            'post': post
+        }
+    return render(request, 'post/post.html', context)

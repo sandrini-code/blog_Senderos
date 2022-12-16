@@ -14,9 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 #from blog.apps.post import views
-from apps.post.views import  crearPost, plantillaHija1, plantillaHija2
+from apps.post.views import  crearPost, plantillaHija1, plantillaHija2, leerPost
 from apps.post.views import  blog, quienesSomos, formularioContacto, contactar, register, publicarPost
 from apps.post.views import fauna, flora, hongos, proyectos, publicaciones, servicios
 from django.contrib.auth.views import LoginView, LogoutView
@@ -42,5 +42,6 @@ urlpatterns = [
     path('hongos/', hongos, name='hongos'),
     path('proyectos/', proyectos, name='proyectos'),
     path('publicaciones/', publicaciones, name='publicaciones'),
-    path('servicios/', servicios, name='servicios')
+    path('servicios/', servicios, name='servicios'),
+    re_path('leer_post/(?P<id>\d+)/$', leerPost, name='posteo'),
 ]

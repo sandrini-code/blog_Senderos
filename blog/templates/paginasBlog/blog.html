@@ -75,11 +75,11 @@
                 {% for post in posts %}
                      <h2 align="center">{{post.titulo}}</h2>
                      <p>{{post.resumen}}</p>
-                     <p>{{post.texto}}</p>
                      <div class="img-container">
                         <img  src='static/{{post.imagen}}'  width="50%" />
                      </div>
                      <p align="center">Creado: {{post.fecha_creacion}}/ Autor: {{post.usuario}}</p>
+                     <a href="{% url 'posteo' post.id %}" class="btn btn-warning">Leer post</a>
                 {%endfor%}
             </article>
         </section>

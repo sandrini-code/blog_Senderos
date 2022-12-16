@@ -1,0 +1,27 @@
+{% extends "plantillaPadre.html" %}
+{%load static%}
+
+
+{% block title %} Post {%endblock %}
+
+{%block content%}
+
+<div class="content container">
+    <div class="row">
+        <div class="col-md-12">
+                <div class="post">
+                    <div class="date">
+                        <p>Publicado: {{post.fecha_creacion}}/ Autor: {{post.usuario}}</p>
+                    </div>
+                    <div class="post">
+                        <h2 align="center">{{post.titulo}}</h2>
+                        <p>{{post.resumen}}</p>
+                        <p>{{post.texto|linebreaksbr}}</p>
+                        <img src='/static/{{post.imagen}}' width="50%" />
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
