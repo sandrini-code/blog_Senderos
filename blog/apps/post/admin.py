@@ -15,6 +15,11 @@ class PostAdmin(admin.ModelAdmin):
     search_files=('id', 'titulo', 'categoria__nombre', 'publicado', 'fecha_creacion')
     list_display= ('id', 'titulo', 'categoria', 'publicado', 'fecha_creacion', 'usuario')
     list_filter=('categoria__nombre', 'publicado', 'usuario')
+class ComentarioAdmin(admin.ModelAdmin):
+    ordering = ('usuario', 'texto', 'posteo', 'fecha')
+    search_fields = ('usuario__nombre', 'texto', 'posteo', 'fecha')
+    list_display = ('usuario', 'texto', 'posteo', 'fecha')
 
 admin.site.register(Categoria, CategoriaAdmin)
 admin.site.register(Post, PostAdmin)
+admin.site.register(Comentario, ComentarioAdmin)

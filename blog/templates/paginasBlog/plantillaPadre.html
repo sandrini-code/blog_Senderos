@@ -26,14 +26,33 @@
 
     {%include "plantillaBarraNavegacion.html"%}
 
-
+<div class="content container">
+    <div class="row">
+        <div class="col-md-12">
+                <div class="post">
                   {% block content %}
 
                   {% endblock %}
+                </div>
+                <footer>
+      <div class="panel-footer">
+            <a href="#titulo">Ir al comienzo</a><br>
+            <a href="/formularioContacto/">Contactame aqui</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=senderos.com"><img alt="Botón redes sociales: Facebook" src="https://blog.hubspot.es/hubfs/media/iconofacebook.png" style="width: 100px; height: 100px; margin-left: auto; margin-right: auto; display: block;"></a>
+            <a href="https://twitter.com/intent/tweet?text=senderos.com"><img alt="Botón de redes sociales: Twitter" src="https://blog.hubspot.es/hubfs/media/iconotwitter.png" style="margin-left: auto; margin-right: auto; display: block;"></a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=senderos.com"><img alt="Botón de redes sociales: LinkedIn" src="https://blog.hubspot.es/hubfs/media/iconolinkedin.png" style="width: 100px; height: 100px; margin-left: auto; margin-right: auto; display: block;"></a>
+            <p>Copirigth 2022</p>
+      </div>
+    </footer>
+
+        </div>
+    </div>
+</div>
+
 
           <!-- JavaScript Bundle with Popper -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>

@@ -2,7 +2,7 @@
 {%load static%}
 {% block title %} BLOG {%endblock %}
 {%block content%}
-<div class="container">
+
     <div class="form-group row">
       <div class="col-xs-4">
           <form class="row g-3">
@@ -61,13 +61,13 @@
 
       </div>
     </div>
-</div>
+
 
 
 <div class="container">
   <div class="panel panel-default">
       <div class="panel-heading">
-          <h1 id="titulo" align="center" >BLOG "Senderos"</h1>
+          <h1  id="titulo" align="center" >BLOG "Senderos"</h1>
       </div>
       <div class="panel-body">
         <section>
@@ -80,18 +80,16 @@
                      </div>
                      <p align="center">Creado: {{post.fecha_creacion}}/ Autor: {{post.usuario}}</p>
                      <a href="{% url 'posteo' post.id %}" class="btn btn-warning">Leer post</a>
+                     <hr>
+                     <div class="text-success">
+                     <hr>
+                     </div>
+                     <hr class="border border-primary border-3 opacity-75">
                 {%endfor%}
             </article>
         </section>
       </div>
   </div>
 
-    <footer>
-      <div class="panel-footer">
-           <a href="#titulo">Ir al comienzo</a><br>
-        <a href="/formularioContacto/">Contactame aqui</a>
-        <p>Copirigth 2022</p>
-      </div>
-    </footer>
 </div>
 {%endblock%}

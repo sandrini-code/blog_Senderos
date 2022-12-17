@@ -1,4 +1,4 @@
-{% extends "paginasBlog/plantillaPadre.html" %}
+{% extends "plantillaPadre.html" %}
 {%load static%}
 {% block title %} Regitro {%endblock %}
 
@@ -17,8 +17,7 @@
 
  <form  method="POST" enctype="multipart/form-data"> {%csrf_token%}
      <div class="card">
-         <h5 class="card-header">Registro de usuarios</h5>
-
+         <h1 class="card-header" align="center" >Registro de usuarios</h1>
         <div class="form-label">
             {{form.as_p}}
         </div>

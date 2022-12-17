@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Post, Categoria
+from django.urls import reverse_lazy
+
+from .models import Post, Categoria, Comentario
 from .forms import PostForm
 from django.core.mail import send_mail
 from django.conf import settings
@@ -112,7 +114,18 @@ def publicarPost(request):
 def leerPost(request, id):
     if request.method=='GET':
         post = Post.objects.get(id=id)
+        comentarios = Comentario.objects.filter(posteo=id)
         context = {
-            'post': post
+            'post': post,
+            'comentarios': comentarios
         }
     return render(request, 'post/post.html', context)
+
+@login_required
+def comentar_Post(request):
+    com = request.POST.get('comentario',None)
+    usu = request.user
+    noti = request.POST.get('id_post', None)
+    post = Post.objects.get(id = noti)
+    Comentario.objects.create(usuario = usu, posteo = post, texto = com)
+    return redirect(reverse_lazy('posteo', kwargs={'id': noti}))

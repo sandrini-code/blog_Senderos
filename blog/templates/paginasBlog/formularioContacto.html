@@ -5,9 +5,10 @@
 {% block title %} Contacto {%endblock %}
 
 {%block content%}
+<div class="container">
  <h1>Contactenos</h1>
     <form action="/contactar/" method="post">{% csrf_token %}
-        <div class="container">
+
         <p>Asunto: <input type="text" class="form-control" name="txtAsunto"/></p>
 
         <p>Email: <input type="email"  class="form-control" name="txtEmail" height="10"/></p>
@@ -16,6 +17,7 @@
             <textarea name="txtMensaje" class="form-control" rows="5" cols="30" style="resize: none;"></textarea>
         </p>
         <input type="submit" value="Enviar"/>
-        </div>
+
     </form>
+ </div>
 {%endblock%}
