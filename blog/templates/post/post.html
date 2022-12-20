@@ -1,18 +1,14 @@
 {% extends "paginasBlog/plantillaPadre.html" %}
-
-
 {%load static%}
 {%load social_share%}
 {% block title %} Post {%endblock %}
-
 {%block content%}
-
-<div class="content container">
-    <div class="row">
-        <div class="col-md-12">
-                <div class="post">
+<div class="container">
+  <div class="panel panel-default">
+      <div class="panel-body">
+               <div class="post">
                     <div class="date">
-                        <p id="titulo">Publicado: {{post.fecha_creacion}}/ Autor: {{post.usuario}}</p>
+                        <p>Publicado: {{post.fecha_creacion}}/ Autor: {{post.usuario}}</p>
                     </div>
                     <div class="post">
                         <h2 align="center">{{post.titulo}}</h2>
@@ -20,11 +16,7 @@
                         <p>{{post.texto|linebreaksbr}}</p>
                         <img src='/static/{{post.imagen}}' width="50%" />
                     </div>
-                </div>
-        </div>
-    </div>
-</div>
-
+               </div>
 {% if user.is_authenticated %}
     <div class="form-group">
          <form method="POST" action="{% url 'comentar' %}">
@@ -47,9 +39,12 @@
     <strong>USUARIO:{{com.usuario}}</strong><br>
     <p>{{com.texto}}</p>
 {% endfor %}
-            <a href="/">VOLVER</a>
-            {% post_to_facebook object_or_url "Comparte este post en Facebook"%}
-            {% post_to_twitter object_or_url "Comparte este post en Twitter"%}
-            {% post_to_telegram "Comparte este post en post_to_telegram" object_or_url %}
+    <a href="/">VOLVER</a>
+    {% post_to_facebook object_or_url "Comparte este post en Facebook"%}
+    {% post_to_twitter object_or_url "Comparte este post en Twitter"%}
+    {% post_to_telegram "Comparte este post en post_to_telegram" object_or_url %}
+      </div>
+  </div>
+</div>
 
 {%endblock%}
